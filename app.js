@@ -1,9 +1,11 @@
-
-
+var index=0;
 const URL = "https://catfact.ninja/facts";
 const msg = document.querySelector("#msg");
+const next_btn= document.querySelector("#next");
+const prev_btn= document.querySelector("#prev");
 
-const getData = async () => {
+
+const getData = async (index) => {
     console.log("Getting data..");
     let response = await fetch(URL);
 
@@ -13,15 +15,28 @@ const getData = async () => {
     let result = await response.json(); // Renamed to 'result' to avoid confusion
     
     // 1. Access the 'data' array inside the result
-    let arrayData = result.data; 
+    const arrayData = result.data; 
     console.log(result);
-    
+
+
     // // 2. Access a specific object in the array
-    console.log(arrayData[0]); 
+    console.log(arrayData[index?index:0]); 
     
     // // 3. Extract a string property (like .breed) to display in the innerText
-    msg.innerText = arrayData[0].fact; 
+    msg.innerText = arrayData[index?index:0].fact; 
+    
 }
+
+
+next_btn.addEventListener("click", ()=>{
+        index++;
+        getData(index)   
+})
+
+prev_btn.addEventListener("click",()=>{
+    index--;
+    getData(index);
+})
 
 getData();
 

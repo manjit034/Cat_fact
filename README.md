@@ -8,7 +8,7 @@ A simple web project that uses the **Fetch API** to retrieve random cat facts fr
 
 The application fetches cat-fact data from an external API using JavaScript's **Fetch API** and displays the result through a simple user interface.
 
-## 🛠️ Tech Stack
+## Tech Stack
 
 * **JavaScript** – Core functionality, API requests, and DOM manipulation
 * **HTML5** – Structure of the webpage
